@@ -12,10 +12,8 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Login Quasar
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -25,18 +23,168 @@
       bordered
       content-class="bg-grey-1"
     >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
+    <q-list class="text-blue-grey-10">
+        <q-item-label header>Menu</q-item-label>
+        <q-item clickable to="/" exact active-class="text-purple-8">
+          <q-item-section avatar>
+            <q-icon name="home"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Inicio</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-expansion-item icon="fas fa-shield-alt"
+                          label="telas"
+                          link
+                          :header-inset-level="0"
+                          :content-inset-level="0.2"
         >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+          <q-item
+            clickable
+            to="/loginTela"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="calendar_today"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Tela Login</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item
+            clickable
+            to="/sobre"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="calendar_today"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Sobre</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-expansion-item>
+        <!-- <q-expansion-item icon="far fa-clock"
+                          label="Configuração de Horários"
+                          link
+                          :header-inset-level="0"
+                          :content-inset-level="0.2"
+        >
+          <q-item
+            clickable
+            to="/agendaCompe"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="calendar_today"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Compensação</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item
+            clickable
+            to="/agendaCorte"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="calendar_today"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Data Contábil</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item
+            clickable
+            to="/agendaTed"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="calendar_today"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>TED</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-expansion-item>
+        <q-expansion-item icon="house"
+                          label="Programa Sua Casa"
+                          link
+                          :header-inset-level="0"
+                          :content-inset-level="0.2"
+        >
+          <q-item
+            clickable
+            to="/suacasa"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="search"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Lote de Cartão</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item
+            clickable
+            to="/suacasa/cancelarcartao"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="search"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Cancelamento de Cartão</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item
+            clickable
+            to="/Rmovsuacasa"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="search"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Relatório Mov. Sua Casa</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item
+            clickable
+            to="/suacasa/consutarelatorio"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="search"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Relatório de Cartão</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item
+            clickable
+            to="/suacasa/consultasaldo"
+            exact
+            active-class="text-purple-8"
+          >
+            <q-item-section avatar>
+              <q-icon name="search"/>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Consulta Saldo</q-item-label>
+            </q-item-section>
+          </q-item>
+
+        </q-expansion-item> -->
       </q-list>
     </q-drawer>
 
@@ -49,60 +197,13 @@
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
 
-const linksData = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
-
 export default {
   name: 'MainLayout',
   components: {
-    EssentialLink
   },
   data () {
     return {
-      leftDrawerOpen: false,
-      essentialLinks: linksData
+      leftDrawerOpen: false
     }
   }
 }

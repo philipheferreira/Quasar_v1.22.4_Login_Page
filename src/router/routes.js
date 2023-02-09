@@ -4,7 +4,9 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '/loginTela', name: 'loginTela', component: () => import('src/pages/loginTela.vue'), meta: {name: 'Tela Login'} }, 
+      { path: '', name: '/inicio', component: () => import('src/pages/index.vue')}, 
+      { path: '/sobre', name: 'sobre', component: () => import('src/pages/sobre.vue')}
     ]
   },
 
