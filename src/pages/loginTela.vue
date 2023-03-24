@@ -21,7 +21,13 @@
             </div>
           </q-tab-panel>
           <q-tab-panel name="cadastro">
-            
+            <h3 class="q-ma-md text-center">Cadastro</h3>
+            <q-input class="q-ma-md" outlined v-model="cadastroUsuario" label="usuario" /> 
+            <q-input class="q-ma-md" outlined v-model="cadastroEmail" label="Email" /> 
+            <q-input class="q-ma-md" outlined v-model="cadastroSenha" label="Password" />
+            <div class="text-center">
+              <q-btn class="q-ma-md" label="cadastrar" style="background: #FF0080; color: white;"/>
+            </div>
           </q-tab-panel>
         </q-tab-panels>
       </div>
@@ -37,6 +43,9 @@ export default {
     return {
       usuario: '',
       senha: '', 
+      cadastroUsuario: '',
+      cadastroSenha: '',
+      cadastroEmail: '',
       valorCheckbox: false,
       cardMenu: 'login'
     }
